@@ -72,7 +72,10 @@ Ext.define('Traccar.view.State', {
                     if (position) {
                         device = Ext.getStore('Devices').getById(position.get('deviceId'));
                         if (device) {
-                            return '<a target="_blank" href="/api/media/' + device.get('uniqueId') + '/' + value + '" >' +
+                            var currentLocPath, appPath;
+                            currentLocPath = location.pathname;
+                            appPath = currentLocPath.substring(0, currentLocPath.lastIndexOf('/'));
+                            return '<a target="_blank" href="' + appPath + '/api/media/' + device.get('uniqueId') + '/' + value + '" >' +
                                 value + '</a>';
                         }
                     }
