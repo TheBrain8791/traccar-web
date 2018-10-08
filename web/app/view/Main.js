@@ -25,7 +25,8 @@ Ext.define('Traccar.view.Main', {
         'Traccar.view.State',
         'Traccar.view.Report',
         'Traccar.view.Events',
-        'Traccar.view.map.Map'
+        'Traccar.view.map.Map',
+        'Traccar.view.CmdAndMessagePanel'        
     ],
 
     controller: 'mainController',
@@ -43,7 +44,7 @@ Ext.define('Traccar.view.Main', {
         layout: 'border',
         width: Traccar.Style.deviceWidth,
         title: Strings.devicesAndState,
-        titleCollapse: true,
+        titleCollapse: true,        
         floatable: false,
         stateful: true,
         stateId: 'devices-and-state-panel',
@@ -54,9 +55,12 @@ Ext.define('Traccar.view.Main', {
         },
 
         items: [{
-            region: 'center',
+            region: 'north',
             xtype: 'devicesView'
-        }, {
+        },{            
+            region: 'center',
+            xtype: 'CmdAndMsgView'            
+        },{
             region: 'south',
             xtype: 'stateView'
         }]
